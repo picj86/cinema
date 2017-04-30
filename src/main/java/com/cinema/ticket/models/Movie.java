@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
+ * The persistent class for the movie database table.
+ * 
  * @author Prabhakar Jha
  *
  */
@@ -50,7 +52,7 @@ public class Movie implements Serializable{
 	
 	@OneToMany
 	@JoinColumn(name="mov_id")
-	private Collection<Room> room = new ArrayList<Room>();
+	private Collection<Screen> room = new ArrayList<Screen>();
 	
 	
 	public Long getId() {
@@ -95,10 +97,10 @@ public class Movie implements Serializable{
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
-	public Collection<Room> getRoom() {
+	public Collection<Screen> getRoom() {
 		return room;
 	}
-	public void setRoom(Collection<Room> room) {
+	public void setRoom(Collection<Screen> room) {
 		this.room = room;
 	}
 	public String getImage() {

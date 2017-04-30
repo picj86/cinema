@@ -13,11 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
+ * The persistent class for the category database table.
+ * 
  * @author Prabhakar Jha
  *
  */
 @Entity
-@Table(name="categories")
+@Table(name="category")
 public class Category implements Serializable{
 
 	private static final long serialVersionUID = 1477025089106081258L;

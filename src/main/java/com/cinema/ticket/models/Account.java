@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
+ * The persistent class for the account database table.
+ * 
  * @author Prabhakar Jha
  *
  */
