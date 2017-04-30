@@ -5,7 +5,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * The persistent class for the customer database table.
  * 
@@ -13,48 +12,48 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Customer.findAll", query="SELECT c FROM Customer c")
+@NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")
 public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private String address;
+	private String username;
 
-	@Temporal(TemporalType.DATE)
-	private Date createdon;
-
-	private String emailid;
+	private String password;
 
 	private String firstname;
 
+	private String middlename;
+
 	private String lastname;
+
+	private String emailid;
+
+	private String address;
+
+	private String phoneno;
 
 	@Temporal(TemporalType.DATE)
 	private Date lastvisted;
 
-	private String middlename;
+	@Temporal(TemporalType.DATE)
+	private Date createdon;
 
 	@Temporal(TemporalType.DATE)
 	private Date modifiedon;
 
 	private int noofvisit;
 
-	private String password;
-
-	private String phoneno;
-
-	private String username;
-
-	//bi-directional many-to-one association to Booking
-	@OneToMany(mappedBy="customerBean")
+	// bi-directional many-to-one association to Booking
+	@OneToMany(mappedBy = "customerBean")
 	private List<Booking> bookings;
 
-	//bi-directional many-to-one association to City
+	// bi-directional many-to-one association to City
 	@ManyToOne
-	@JoinColumn(name="city")
+	@JoinColumn(name = "city")
 	private City cityBean;
 
 	public Customer() {

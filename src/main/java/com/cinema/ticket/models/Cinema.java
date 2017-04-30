@@ -5,7 +5,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * The persistent class for the cinema database table.
  * 
@@ -13,30 +12,25 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Cinema.findAll", query="SELECT c FROM Cinema c")
+@NamedQuery(name = "Cinema.findAll", query = "SELECT c FROM Cinema c")
 public class Cinema implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+
+	private String name;
 
 	private String address;
 
 	private int capacity;
 
-	@Temporal(TemporalType.DATE)
-	private Date establishdate;
-
-	private String fax;
-
-	private int goldrate;
-
-	private String manager;
+	private int totalscreen;
 
 	private String municipal;
 
-	private String name;
+	private int goldrate;
 
 	private int platinumrate;
 
@@ -44,19 +38,24 @@ public class Cinema implements Serializable {
 
 	private String telephone;
 
-	private int totalscreen;
+	private String fax;
 
-	//bi-directional many-to-one association to Booking
-	@OneToMany(mappedBy="cinemaBean")
+	private String manager;
+
+	@Temporal(TemporalType.DATE)
+	private Date establishdate;
+
+	// bi-directional many-to-one association to Booking
+	@OneToMany(mappedBy = "cinemaBean")
 	private List<Booking> bookings;
 
-	//bi-directional many-to-one association to City
+	// bi-directional many-to-one association to City
 	@ManyToOne
-	@JoinColumn(name="city")
+	@JoinColumn(name = "city")
 	private City cityBean;
 
-	//bi-directional many-to-one association to Screen
-	@OneToMany(mappedBy="cinemaBean")
+	// bi-directional many-to-one association to Screen
+	@OneToMany(mappedBy = "cinemaBean")
 	private List<Screen> screens;
 
 	public Cinema() {

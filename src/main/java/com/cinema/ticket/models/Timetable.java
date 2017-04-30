@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * The persistent class for the timetable database table.
  * 
+ * @author Prabhakar Jha
+ * 
  */
 @Entity
 @NamedQuery(name="Timetable.findAll", query="SELECT t FROM Timetable t")
@@ -16,7 +18,7 @@ public class Timetable implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Temporal(TemporalType.TIMESTAMP)

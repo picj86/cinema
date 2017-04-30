@@ -8,6 +8,8 @@ import java.util.List;
 /**
  * The persistent class for the state database table.
  * 
+ * @author Prabhakar Jha
+ * 
  */
 @Entity
 @NamedQuery(name="State.findAll", query="SELECT s FROM State s")
@@ -15,7 +17,7 @@ public class State implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;

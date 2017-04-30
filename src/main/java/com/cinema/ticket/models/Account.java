@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.NamedQuery;
 
 /**
  * The persistent class for the account database table.
@@ -19,16 +19,17 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="account")
-public class Account implements Serializable{
-	
+@NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a")
+public class Account implements Serializable {
+
 	private static final long serialVersionUID = 1592914456395474590L;
-	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column
 	private double amount;
-	
+
 	public Integer getId() {
 		return id;
 	}
