@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -172,6 +170,14 @@ public class Cinema implements Serializable {
 
 	public void setTotalscreen(int totalscreen) {
 		this.totalscreen = totalscreen;
+	}
+
+	public City getCityBean() {
+		return cityBean;
+	}
+
+	public void setCityBean(City cityBean) {
+		this.cityBean = cityBean;
 	}
 
 	/*public List<Booking> getBookings() {
