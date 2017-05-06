@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layout/mainLayout">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Theater</title>
+</head>
+<body>
+	<div layout:fragment="pageHeader">
+
+		<section class="content-header">
+			<h1>
+				Theater <small>Manage Cinema Theater</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a th:href="@{'/home'}"><i class="fa fa-home"></i> Home</a></li>
+				<li class="active"><i class="fa fa-home"></i> Theater</li>
+			</ol>
+		</section>
+
+	</div>
+	<div layout:fragment="content">
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Cinema</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool"
+						data-widget="collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove">
+						<i class="fa fa-remove"></i>
+					</button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<!-- form start -->
+					<form role="form" th:action="@{/theater}" th:object="${cinema}" method="POST">
+						<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" th:class="text-red">Incorrect data</p>
+						
+						<div class="col-md-6">
+
+							<div class="box box-primary">
+								<div class="box-header with-border"></div>
+								<!-- /.box-header -->
+
+								<div class="box-body">
+									<div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+									
+										<label for="name">Name</label> 
+										<input
+											type="text" class="form-control" name="name" th:field="*{name}"
+											placeholder="Enter name" />
+										<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="text-red">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('address')}? 'has-error'">
+										<label for="address">Address</label> 
+										<input
+											type="text" class="form-control" name="address" th:field="*{address}" 
+											placeholder="Enter address" />
+										<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:class="text-red">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('address')}? 'has-error'">
+										<label for="capacity">Capacity</label> 
+										<input
+											type="text" class="form-control" name="capacity" th:field="*{capacity}" 
+											placeholder="Enter capacity" />
+										<p th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}" th:class="text-red">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('totalscreen')}? 'has-error'">
+										<label for="totalscreen">Total No. of Screen</label> 
+										<input
+											type="text" class="form-control" name="totalscreen" th:field="*{totalscreen}" 
+											placeholder="Enter screen count" />
+										<p th:if="${#fields.hasErrors('totalscreen')}" th:errors="*{totalscreen}" th:class="text-red">Incorrect data</p>
+									</div>
+
+									<div class="form-group" th:classappend="${#fields.hasErrors('telephone')}? 'has-error'">
+										<label for="telephone">Telephone</label> 
+										<input
+											type="text" class="form-control" name="telephone" th:field="*{telephone}" 
+											placeholder="Enter telephone" />
+										<p th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" th:class="text-red">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('fax')}? 'has-error'">
+										<label for="fax">Fax</label> 
+										<input
+											type="text" class="form-control" name="fax" th:field="*{fax}" 
+											placeholder="Enter fax" />
+										<p th:if="${#fields.hasErrors('fax')}" th:errors="*{telephone}" th:class="fax">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('manager')}? 'has-error'">
+										<label for="manager">Manager Name</label>
+										<input
+											type="text" class="form-control" name="manager" th:field="*{manager}" 
+											placeholder="Enter manager name" />
+										<p th:if="${#fields.hasErrors('manager')}" th:errors="*{manager}" th:class="text-red">Incorrect data</p>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+						<!-- /.col -->
+						<div class="col-md-6">
+							<div class="box box-primary">
+								<div class="box-header with-border"></div>
+								<div class="box-body">
+									<div class="form-group" th:classappend="${#fields.hasErrors('platinumrate')}? 'has-error'">
+										<label for="platinumrate">Platinum Rate</label> 
+										<input
+											type="text" class="form-control" name="platinumrate" th:field="*{platinumrate}" 
+											placeholder="Enter Platinum Rate" />
+										<p th:if="${#fields.hasErrors('platinumrate')}" th:errors="*{platinumrate}" th:class="text-red">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('goldrate')}? 'has-error'">
+										<label for="goldrate">Gold Rate</label> 
+										<input
+											type="text" class="form-control" name="goldrate" th:field="*{goldrate}"
+											placeholder="Enter gold rates" />
+										<p th:if="${#fields.hasErrors('goldrate')}" th:errors="*{goldrate}" th:class="text-red">Incorrect data</p>
+									</div>
+									<div class="form-group" th:classappend="${#fields.hasErrors('silverrate')}? 'has-error'">
+										<label for="silverrate">Silver Rate</label> 
+										<input
+											type="text" class="form-control" name="silverrate" th:field="*{silverrate}" 
+											placeholder="Enter Silver Rate" />
+										<p th:if="${#fields.hasErrors('silverrate')}" th:errors="*{silverrate}" th:class="text-red">Incorrect data</p>
+									</div>
+									
+
+									<div class="form-group">
+										<label>Country</label> <select class="form-control select2"
+											style="width: 100%;">
+											<option selected="selected">India</option>
+											<option>US</option>
+											<option>UK</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>State</label> <select class="form-control select2"
+											style="width: 100%;">
+											<option selected="selected">Maharashtra</option>
+											<option>Uttar Pradesh</option>
+											<option>Bihar</option>
+											<option>Madhya Pradesh</option>
+											<option>Jharkhand</option>
+											<option>Timil Naidu</option>
+										</select>
+									</div>
+									<!-- /.form-group -->
+									<div class="form-group">
+										<label>City</label> <select class="form-control select2"
+											style="width: 100%;">
+											<option selected="selected">Pune</option>
+											<option>Nasik</option>
+											<option>Nagput</option>
+											<option>Solapur</option>
+
+										</select>
+									</div>
+									<!-- /.form-group -->
+									<div class="form-group">
+										<label>Screen</label> <select class="form-control select2"
+											style="width: 100%;">
+											<option selected="selected">1A</option>
+											<option>1B</option>
+											<option>2A</option>
+											<option>2B</option>
+											<option>VIP</option>
+
+										</select>
+									</div>
+
+								</div>
+								<!-- /.box-header -->
+
+							</div>
+
+						</div>
+						<div class="col-md-12">
+							<div class="box-footer">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

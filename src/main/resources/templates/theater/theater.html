@@ -51,7 +51,7 @@
 
 						<!-- /.box-header -->
 						<div class="box-body">
-							<table id="theater" class="table table-bordered table-hover">
+							<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
 										<th>Name</th>
@@ -62,12 +62,12 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="thea,iterStat : ${theaters}">
-										<td th:text="${thea.name}">Name</td>
-										<td th:text="${thea.totalscreen}">Total Screens</td>
-										<td th:text="${thea.platinumrate}">Platinum (Rs.)</td>
-										<td th:text="${thea.goldrate}">Gold (Rs.)</td>
-										<td th:text="${thea.silverrate}">Sliver (Rs.)</td>
+									<tr th:each="cin,iterStat : ${cinemas}">
+										<td th:text="${cin.name}">Name</td>
+										<td th:text="${cin.totalscreen}">Total Screens</td>
+										<td th:text="${cin.platinumrate}">Platinum (Rs.)</td>
+										<td th:text="${cin.goldrate}">Gold (Rs.)</td>
+										<td th:text="${cin.silverrate}">Sliver (Rs.)</td>
 									</tr>
 								</tbody>
 							</table>
