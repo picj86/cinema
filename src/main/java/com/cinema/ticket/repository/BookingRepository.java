@@ -14,6 +14,4 @@ import com.cinema.ticket.models.Booking;
  */
 public interface BookingRepository extends CrudRepository<Booking, Long> {
 	
-	Booking findByMovieName(String movieName);
-	Booking findByMovie(Movie seat);
 }

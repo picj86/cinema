@@ -1,9 +1,17 @@
 package com.cinema.ticket.models;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the cinema database table.
@@ -43,20 +51,21 @@ public class Cinema implements Serializable {
 	private String manager;
 
 	@Temporal(TemporalType.DATE)
-	private Date establishdate;
+	private Date establishdate = new Date();
+	
+	// one-to-one association to City
+		
+	private City cityBean;
 
-	// bi-directional many-to-one association to Booking
+	/*// bi-directional many-to-one association to Booking
 	@OneToMany(mappedBy = "cinemaBean")
 	private List<Booking> bookings;
 
-	// bi-directional many-to-one association to City
-	@ManyToOne
-	@JoinColumn(name = "city")
-	private City cityBean;
+	
 
 	// bi-directional many-to-one association to Screen
 	@OneToMany(mappedBy = "cinemaBean")
-	private List<Screen> screens;
+	private List<Screen> screens;*/
 
 	public Cinema() {
 	}
@@ -165,7 +174,7 @@ public class Cinema implements Serializable {
 		this.totalscreen = totalscreen;
 	}
 
-	public List<Booking> getBookings() {
+	/*public List<Booking> getBookings() {
 		return this.bookings;
 	}
 
@@ -216,5 +225,5 @@ public class Cinema implements Serializable {
 
 		return screen;
 	}
-
+*/
 }

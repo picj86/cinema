@@ -70,7 +70,7 @@ public class City implements Serializable {
 		this.cinemas = cinemas;
 	}
 
-	public Cinema addCinema(Cinema cinema) {
+	/*public Cinema addCinema(Cinema cinema) {
 		getCinemas().add(cinema);
 		cinema.setCityBean(this);
 
@@ -82,7 +82,7 @@ public class City implements Serializable {
 		cinema.setCityBean(null);
 
 		return cinema;
-	}
+	}*/
 
 	public State getStateBean() {
 		return this.stateBean;

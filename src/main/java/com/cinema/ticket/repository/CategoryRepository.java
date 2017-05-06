@@ -1,7 +1,6 @@
 package com.cinema.ticket.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cinema.ticket.models.Category;
@@ -12,10 +11,10 @@ import com.cinema.ticket.models.Category;
  *
  */
 @Transactional
-@PreAuthorize("hasRole('ROLE_USER')")
+//@PreAuthorize("hasRole('ROLE_USER')")
 public interface CategoryRepository extends CrudRepository<Category, Long>{
 	
 	Category findByName(String name);
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	Iterable<Category> findAll();
 }
